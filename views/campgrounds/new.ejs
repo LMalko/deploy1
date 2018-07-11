@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+
+<div class="container whiteTextColor" style="text-align: center;">
+    <h1>CREATE NEW CAMPGROUND</h1>
+
+    <div class="row" >
+        <div class="NewPost">
+            <form action="/campgrounds" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" name="price" placeholder="price"
+                           min="0.01" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="description" placeholder="description">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text"
+                           name="location" id="location" placeholder="location">
+                </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="NewPost" style="text-align: center;">
+
+            <legend style="font-weight: bold">AVATAR</legend>
+            <legend>CHOOSE FILE</legend>
+
+            <label class="btn btn-default" style="border-color: whitesmoke; width: 100%">
+                Browse <input name="image1" accept="image/*" id="image1" type="file" hidden>
+            </label>
+
+            <legend>OR INSERT URL</legend>
+            <div class="form-group">
+                <input class="form-control" id="image2" type="text"
+                       name="image2" placeholder="image url" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-lg btn-info btn-block">Submit</button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+    <a href="/campgrounds">Go back</a>
+</div>
+
+<!--Dummy container-->
+<div style="margin-bottom: 60px"></div>
+
+<% include ../partials/footer %>

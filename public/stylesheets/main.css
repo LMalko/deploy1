@@ -1,0 +1,175 @@
+body{
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-attachment: fixed
+}
+
+#navbarSupportedContent{
+ background: black;
+}
+
+.navbar{
+    background: black;
+}
+
+.whiteTextColor{
+    color: white;
+}
+.dropdownSpecs1{
+    color: red;
+}
+#dropdownSpecs4{
+    background: black;
+}
+
+.redTextColor{
+    color: red;
+}
+
+.showCampMargin{
+    margin-top: 10px;
+}
+
+.limeTextColor{
+    color: lawngreen;
+}
+
+.showCampImage{
+    height: 60%;
+}
+
+.dummyContainer{
+    margin-bottom: 100px;
+}
+
+.bodyNavbar{
+    border-radius: 40px;
+    font-size: 21px;
+    padding: 15px 20px;
+}
+
+.navbarItem{
+    margin-left: 10px;
+}
+
+a{
+    text-decoration: none!important;
+}
+
+.NewPost{
+    width: 30%;
+    margin: 25px auto;
+}
+
+.CampgroundsIndexImage{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    height: 160px;
+}
+
+.Inline{
+    display: inline;
+}
+
+/* Google Maps */
+#map {
+    height: 200px;
+    width: 100%;
+}
+
+.profilePicture{
+    padding: 20px;
+    min-height: 379px;
+    width: 100%;
+}
+
+.profileCampPicture{
+    height: 100px;
+    width: 85%;
+}
+
+.profilePageLi{
+    text-align: center;
+    width: 85%;
+}
+.orangeredTextColour{
+    color: orangered;
+}
+
+.profilePageCard{
+    min-height: 380px;
+    text-align: center;
+}
+
+.profilePageCard2{
+    text-align: center;
+}
+
+.profilePageJumbotron{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #200122;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.profileInfo{
+    font-family: "Berlin Sans FB";
+    padding-top: 10px;
+    font-size: 100px;
+    word-wrap: break-word;
+}
+
+.userActivityInfo{
+    font-family: "Berlin Sans FB";
+    padding-top: 10px;
+    font-size: 22px;
+    word-wrap: break-word;
+}
+
+.ulNoDots{
+    list-style-type: none;
+}
+
+.cardBackground{
+    background: #200122;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.profileInfoMargin{
+    margin-bottom: 30px;
+}
+
+.footerStyling{
+    margin-top: 20px;
+    width: 100%;
+    height: 109px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+.userProfileActivities{
+    width: 30%;
+    margin: 25px auto;
+    text-align: center;
+}
+
+.CenterContent{
+    display: flex;
+    justify-content: center;
+}
+
+.BorderBox{
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 30%;
+}

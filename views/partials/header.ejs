@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campgrounds</title>
+    <link rel="stylesheet" href="/scripts/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+
+    <!--Mobile view -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark navbarcolors fixed-top bodyNavbar" >
+
+    <a class="whiteTextColor" href="/">
+        <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528803518/icons8-dog-house-48.png"
+             class="navbarItem">Home</a>
+
+        <!-- parameter 'data-target ' sets id which items will be inside hamburger -->
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <a class="whiteTextColor <%= thisURL === "/campgrounds/" ||
+            thisURL.startsWith("/campgrounds/?page=") ? "redTextColor": " "%>"
+               href="/campgrounds">
+                <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528803453/icons8-campfire-48.png"
+                     class="navbarItem">Campgrounds</a>
+
+            <ul class="navbar-nav mr-auto">
+                <% if(currentUser) {%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropdownSpecs1" style="padding: 0"
+                       href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_19/v1528805880/icons8-services-48.png"
+                             class="navbarItem">Available actions
+                    </a>
+                    <div class="dropdown-menu ml-4 mr-4" id="dropdownSpecs4" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item dropdownSpecs1"
+                           href="/users/<%= currentUser._id%>">Show my profile</a>
+                        <a class="dropdown-item dropdownSpecs1"
+                           href="/users/<%= currentUser._id%>/editAvatar">Change avatar</a>
+                <% if(currentUser.isAdmin){ %>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item dropdownSpecs1" href="/editUser">Assign user roles</a>
+                        <a class="dropdown-item dropdownSpecs1" href="/destroyUser">Delete user</a>
+                    </div>
+                </li>
+                <%} %>
+            <%}%>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <%if(!currentUser){%>
+                <li><a class="whiteTextColor <%= thisURL === "/forgot" ? "redTextColor": " "%>"
+                       href="/forgot">
+                        <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528804137/icons8-confusion-50.png"
+                             class="navbarItem">Forgot Password</a></li>
+                <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%>"
+                       href="/register">
+                        <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528804137/icons8-registration-50.png"
+                             class="navbarItem">Sign Up</a></li>
+                <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%>"
+                       href="/login">
+                        <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528804137/icons8-front-desk-50.png"
+                             class="navbarItem">Log In</a></li>
+                <%}else{%>
+                <li class="limeTextColor" >
+                    <a class="">
+                        <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528805785/icons8-administrator-male-40.png"
+                            class="navbarItem">Current user: <%= currentUser.username%></a>
+                </li>
+                <li class=""><a class="whiteTextColor"href="/logout">
+                        <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528805572/icons8-exit-sign-48.png"
+                             class="navbarItem">Log Out</a></li>
+                <%}%>
+                <li class=""><a class=""></a></li>
+            </ul>
+        </div>
+</nav>
+
+
+
+<div class="container dummyContainer">
+
+</div>
+
+<!--Flash message-->
+<div class="container">
+    <!--Although error is empty, it's not undefined-->
+    <% if(error && error.length > 0){%>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+    <%}%>
+
+    <% if(success && success.length > 0){%>
+    <div class="alert alert-success" role="alert">
+        <%= success %>
+    </div>
+    <%}%>
+
+    <% try{ %>
+        <% if (results === 'No results.') { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= results %>
+                </div>
+        <% } else if(results) { %>
+                <div class="alert alert-success" role="alert">
+                    <%= results %>
+                </div>
+
+        <% }}catch(err){}%>
+</div>
+

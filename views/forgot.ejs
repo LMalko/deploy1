@@ -1,0 +1,36 @@
+<% include ./partials/header %>
+
+
+<div class="container whiteTextColor" style="text-align: center;">
+    <h1>FORGOT PASSWORD</h1>
+    <div class="row">
+        <div class="userProfileActivities">
+            <form action="/forgot" method="POST">
+
+                <div class="form-group">
+                    <input type="text" name="email" placeholder="email"
+                           class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Reset</button>
+                </div>
+
+                <p style="text-align: center">
+                    <% if (previousURL == "/campgrounds/new") {%>
+                    <a href="/campgrounds">Go Back</a>
+                    <% } else { %>
+                    <a href=<%=previousURL%>>Go Back</a>
+                    <% } %>
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Dummy container-->
+<div style="margin-bottom: 350px"></div>
+
+
+<% include ./partials/footer %>

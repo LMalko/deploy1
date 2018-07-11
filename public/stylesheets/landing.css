@@ -1,0 +1,114 @@
+body {
+    background-color: black;
+}
+
+#landing-header {
+    /*We set the z-index to 1 so all of the elements inside the landing-header div
+        will be in front of the background images*/
+    z-index: 1;
+    /*The position is set to relative so we can use the z-index property;
+    the default position value is static, which ignores z-index*/
+    position: relative;
+
+    text-align: center;
+    /*We use padding-top to vertically center our div, since it's contents take up quite a bit of
+    space we use 40vh (view height) instead of 50,
+    this way the content looks more visually centered*/
+    padding-top: 40vh;
+}
+
+#landing-header h1 {
+    color: #fff;
+}
+
+.slideshow {
+    /*positioned relative to the viewport,
+    which means it always stays in the same place even if the page is scrolled.*/
+    position: fixed;
+
+    /*Takes an entire page*/
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    /*Behind other content*/
+    z-index: 0;
+
+    /*Remove bullet-points*/
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li {
+    width: 100%;
+    height: 100%;
+
+    /*The element is removed from the normal document flow,
+    and no space is created for the element in the page layout.
+    It is positioned relative to its closest positioned ancestor, if any;
+    otherwise, it is placed relative to the initial containing block.
+    Its final position is determined by the values of top, right, bottom, and left.*/
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    /*Take the entire space of the page*/
+    background-size: cover;
+
+    /*Center li on the page*/
+    background-position: 50% 50%;
+
+    /*Li not repeating vertically nor horizontally*/
+    background-repeat: no-repeat;
+
+    /*Start faded out*/
+    opacity: 0;
+
+    /*Li stay behind z-index: 1*/
+    z-index: 0;
+
+    /*Linear - move in the same speed, infinite - loop forever*/
+    animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1) {
+    background-image: url(https://res.cloudinary.com/campgrounds2018/image/upload/v1528459738/Li_3.jpg)
+}
+.slideshow li:nth-child(2) {
+    background-image: url(https://res.cloudinary.com/campgrounds2018/image/upload/v1528459737/Li_2.jpg);
+    animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+    background-image: url(https://res.cloudinary.com/campgrounds2018/image/upload/v1528459737/Li_4.jpg);
+    animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+    background-image: url(https://res.cloudinary.com/campgrounds2018/image/upload/v1528459740/Li_1.jpg);
+    animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+    background-image: url(https://res.cloudinary.com/campgrounds2018/image/upload/v1528459737/Li_5.jpg);
+    animation-delay: 40s;
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    20% {
+        opacity: 1
+    }
+    30% {
+        opacity: 0
+    }
+}

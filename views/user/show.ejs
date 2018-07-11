@@ -1,0 +1,89 @@
+<% include ../partials/header %>
+
+<header class="container">
+    <div class="jumbotron profilePageJumbotron" >
+        <div class="row">
+            <div class="col-md-4" >
+                <div class="card cardBackground profilePageCard">
+                    <img class="profilePicture" src="<%= user.avatar %>" alt="avatar image">
+                </div>
+            </div>
+            <div class="col-md-8 ">
+                <div class="card text-white cardBackground profilePageCard profileInfo">
+                    <h1 class="profileInfoMargin"><%= "Username: " + user.username%></h1>
+                    <h1 class="profileInfoMargin"><%= "First name:  " + user.firstName %></h1>
+                    <h1 class="profileInfoMargin"><%= "Last name:  " + user.lastName %></h1>
+                    <h1 class="profileInfoMargin"><%= "email:  " + user.email %></h1>
+                    <%if(user.isAdmin){ role = "admin" }else{ role = "default"}%>
+                    <h1><%= "Role: " + role %></h1>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="jumbotron profilePageJumbotron">
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="card text-white cardBackground userActivityInfo">
+                    <h1 class="profilePageCard2">Campgrounds</h1>
+                    <ul class="ulNoDots">
+
+                        <% if (campgrounds.length === 0) {%>
+                        <p>No campgrounds yet.</p>
+                        <% } %>
+                        <% campgrounds.forEach(function(campground) {%>
+                        <% console.log(campground) %>
+                        <li class="profilePageLi">
+                            <a href="/campgrounds/<%=campground.id%>"><%= campground.name%></a></li>
+                        <img class="profileCampPicture"
+                             src= <%= campground.image%>
+                             alt="<%=campground.image%>">
+                        <% }); %>
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="col-md-8">
+
+                <div class="card text-white cardBackground userActivityInfo">
+                    <h1 class="profilePageCard2">Comments</h1>
+                    <ul>
+                        <% if (comments.length === 0) {%>
+                        <p>No comments yet.</p>
+                        <% } %>
+
+                        <% comments.reverse() %>
+                        <% comments.forEach(function(comment) {%>
+                        <li>'<%=comment.text%>'<br><em class="limeTextColor">
+                                <%= moment(comment.createdAt).fromNow() %> in
+                                <a href="/campgrounds/<%=comment.campground.id%>">
+                                    <%= comment.campground.campgroundName%></a>
+                            </em></li>
+                        <% }); %>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container" style="text-align: center">
+        <a class="centerPosition" href="<%=previousURL%>">Go back</a>
+    </div>
+
+
+</header>
+
+
+
+
+
+<% include ../partials/footer %>
